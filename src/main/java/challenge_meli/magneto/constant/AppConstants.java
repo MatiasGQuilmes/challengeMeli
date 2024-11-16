@@ -14,4 +14,15 @@ public class AppConstants {
     // Otros valores constantes
     public static final int SEQUENCE_LENGTH = 4;  // Longitud de la secuencia de ADN
     public static final int MINIMUM_MUTANT_SEQUENCES = 2; // Mínimo de secuencias mutantes para considerar un ADN como mutante
+
+    public static final String SPRING_DATASOURCE_URL = "jdbc:h2:mem:testdb";
+
+    public static final String SPRING_DATASOURCE_DRIVERCLASSNAME = "org.h2.Driver";
+
+    public static final String SPRING_DATASOURCE_USERNAME = "sa";
+    public static final String SPRING_DATASOURCE_PASSWORD = "password";
+
+    public static final String SPRING_DATASOURCE_INITMODE = "always";
+
 }
+
