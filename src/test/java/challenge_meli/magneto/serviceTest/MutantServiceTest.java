@@ -31,26 +31,21 @@ class MutantServiceTest {
 
     @BeforeEach
     void setUp() {
-        // Inicializa los mocks
         MockitoAnnotations.openMocks(this);
 
-        // Configurar el DTO de prueba
         dnaDTO = new DnaDTO();
         dnaDTO.setDna(new String[] {"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
         dnaDTO.setMutant(true);
 
-        // Configurar la entidad de ADN
         dnaEntity = new Dna(dnaDTO.getDna(),dnaDTO.isMutant());
 
     }
 
     @Test
     void testIsMutant_True() {
-        // Preparar el mock para el método 'save'
         when(dnaMapper.dnaDTOtoEntity(any(DnaDTO.class))).thenReturn(dnaEntity);
         when(dnaRepository.save(any(Dna.class))).thenReturn(dnaEntity);
 
-        // Test con ADN mutante
         boolean result = mutantService.isMutant(new String[] {"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
 
         assertTrue(result);
@@ -59,20 +54,17 @@ class MutantServiceTest {
 
     @Test
     void testIsMutant_False() {
-        // Preparar el mock para el método 'save'
         when(dnaMapper.dnaDTOtoEntity(any(DnaDTO.class))).thenReturn(dnaEntity);
         when(dnaRepository.save(any(Dna.class))).thenReturn(dnaEntity);
 
-        // Test con ADN humano
         boolean result = mutantService.isMutant(new String[] {"ATGC", "CAGT", "TCTA", "AGCG"});
 
         assertFalse(result);
-        verify(dnaRepository, times(1)).save(any(Dna.class)); // Verifica que se haya llamado a save
+        verify(dnaRepository, times(1)).save(any(Dna.class));
     }
 
     @Test
     void testIsMutant_InvalidDna() {
-        // Test cuando el ADN es nulo o vacío
         assertThrows(InvalidDnaException.class, () -> mutantService.isMutant(null));
         assertThrows(InvalidDnaException.class, () -> mutantService.isMutant(new String[] {}));
     }
@@ -80,16 +72,13 @@ class MutantServiceTest {
 
     @Test
     void testIsMutant_DatabaseException() {
-        // Simular un error en el mapeo de la entidad para causar una excepcion en el guardado
         when(dnaMapper.dnaDTOtoEntity(any(DnaDTO.class))).thenReturn(dnaEntity);
         when(dnaRepository.save(any(Dna.class))).thenThrow(new RuntimeException("Simulated database error"));
 
-        // Verificar que se lanza la DatabaseException al intentar guardar en la base de datos
         DatabaseException exception = assertThrows(DatabaseException.class, () -> {
             mutantService.isMutant(new String[] {"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
         });
 
-        // Verificar el mensaje de la excepcion
         assertEquals(AppConstants.ERROR_DATABASE_SAVE, exception.getMessage());
         assertThrows(DatabaseException.class, () -> mutantService.isMutant(new String[] {"ATGC", "CAGT", "TTAT", "AGCG"}));
     }
