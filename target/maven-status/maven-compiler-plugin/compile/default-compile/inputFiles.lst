@@ -1,0 +1,15 @@
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\service\IStatsService.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\constant\AppConstants.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\MagnetoApplication.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\dto\StatsDTO.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\exception\DatabaseException.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\service\implement\MutantServiceImpl.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\repository\IDnaRepository.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\service\implement\StatsServiceImpl.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\model\Dna.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\exception\InvalidDnaException.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\controller\StatsController.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\dto\DnaDTO.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\service\IMutantService.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\controller\MutantController.java
+C:\Users\matyy\OneDrive\Escritorio\challenges\ChallengeMeli2\challengeMeli\src\main\java\challenge_meli\magneto\service\mapper\IDnaMapper.java
