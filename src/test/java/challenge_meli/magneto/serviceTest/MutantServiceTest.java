@@ -38,7 +38,6 @@ class MutantServiceTest {
         dnaDTO.setMutant(true);
 
         dnaEntity = new Dna(dnaDTO.getDna(),dnaDTO.isMutant());
-
     }
 
     @Test
@@ -49,7 +48,7 @@ class MutantServiceTest {
         boolean result = mutantService.isMutant(new String[] {"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
 
         assertTrue(result);
-        verify(dnaRepository, times(1)).save(any(Dna.class)); // Verifica que se haya llamado a save
+        verify(dnaRepository, times(1)).save(any(Dna.class));
     }
 
     @Test

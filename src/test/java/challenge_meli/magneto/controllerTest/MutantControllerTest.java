@@ -27,51 +27,40 @@ class MutantControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Inicializa los mocks
         MockitoAnnotations.openMocks(this);
 
-        // Configurar el DTO de ADN de prueba
         dnaDTO = new DnaDTO();
         dnaDTO.setDna(new String[]{"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
     }
 
     @Test
     void testIsMutant_Returns200_WhenMutant() {
-        // Preparar el mock
         when(mutantService.isMutant(dnaDTO.getDna())).thenReturn(true);
 
-        // Ejecutar el método del controlador
         ResponseEntity<Void> response = mutantController.isMutant(dnaDTO);
 
-        // Verificar el resultado
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        verify(mutantService, times(1)).isMutant(dnaDTO.getDna()); // Verifica que se haya llamado al método
+        verify(mutantService, times(1)).isMutant(dnaDTO.getDna());
     }
 
     @Test
     void testIsMutant_Returns403_WhenNotMutant() {
-        // Preparar el mock
         when(mutantService.isMutant(dnaDTO.getDna())).thenReturn(false);
 
-        // Ejecutar el método del controlador
         ResponseEntity<Void> response = mutantController.isMutant(dnaDTO);
 
-        // Verificar el resultado
         assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
-        verify(mutantService, times(1)).isMutant(dnaDTO.getDna()); // Verifica que se haya llamado al método
+        verify(mutantService, times(1)).isMutant(dnaDTO.getDna());
     }
 
     @Test
     void testDnaDTOConstructor_WithDnaObject() {
-        // Configura un objeto Dna de prueba
         Dna dnaMock = new Dna();
         dnaMock.setDna(new String[]{"ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG"});
         dnaMock.setMutant(true);
 
-        // Instancia DnaDTO usando el constructor que toma un Dna
         DnaDTO dto = new DnaDTO(dnaMock);
 
-        // Verifica que los campos de DnaDTO se hayan inicializado correctamente
         assertArrayEquals(dnaMock.getDna(), dto.getDna());
         assertEquals(dnaMock.isMutant(), dto.isMutant());
     }

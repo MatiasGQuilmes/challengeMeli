@@ -11,7 +11,7 @@ public class AppConstants {
     public static final String SUCCESS_MUTANT_DETECTED = "Mutante detectado exitosamente.";
     public static final String SUCCESS_HUMAN_DETECTED = "Humano detectado exitosamente.";
 
-    // Otros valores constantes
+    // Otras constantes
     public static final int SEQUENCE_LENGTH = 4;  // Longitud de la secuencia de ADN
     public static final int MINIMUM_MUTANT_SEQUENCES = 2; // Mínimo de secuencias mutantes para considerar un ADN como mutante
 

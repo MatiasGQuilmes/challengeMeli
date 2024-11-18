@@ -24,31 +24,26 @@ class StatsControllerTest {
 
     @BeforeEach
     void setUp() {
-        // Inicializa los mocks
         MockitoAnnotations.openMocks(this);
 
-        // Configurar un objeto StatsDTO de prueba
         statsDTO = new StatsDTO();
-        statsDTO.setCountMutantDNA(5);
-        statsDTO.setCountHumanDNA(10);
+        statsDTO.setCount_mutant_dna(5);
+        statsDTO.setCount_human_dna(10);
         statsDTO.setRatio(0.5);
     }
 
     @Test
     void testGetStats_ReturnsStatsDTO() {
-        // Preparar el mock
         when(statsService.getStats()).thenReturn(statsDTO);
 
-        // Ejecutar el método del controlador
         StatsDTO response = statsController.getStats();
 
-        // Verificar el resultado
         assertNotNull(response);
-        assertEquals(5, response.getCountMutantDNA());
-        assertEquals(10, response.getCountHumanDNA());
+        assertEquals(5, response.getCount_mutant_dna());
+        assertEquals(10, response.getCount_human_dna());
         assertEquals(0.5, response.getRatio());
 
-        // Verifica que se haya llamado al método de servicio
+
         verify(statsService, times(1)).getStats();
     }
 }

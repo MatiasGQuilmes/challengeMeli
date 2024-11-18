@@ -33,6 +33,6 @@ public class IDnaMapperTest {
         DnaDTO dnaDTO = mapper.entityToDNADTO(dnaEntity);
 
         assertNotNull(dnaDTO);
-        assertArrayEquals(dnaEntity.getDna(), dnaDTO.getDna()); // Verifica que el contenido del DNA es el mismo
+        assertArrayEquals(dnaEntity.getDna(), dnaDTO.getDna());
     }
 }

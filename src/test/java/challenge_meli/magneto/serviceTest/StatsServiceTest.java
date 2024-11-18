@@ -14,28 +14,24 @@ import org.mockito.*;
 public class StatsServiceTest {
 
     @Mock
-    private IDnaRepository dnaRepository;  // Mock del repositorio
-
+    private IDnaRepository dnaRepository;
     @InjectMocks
-    private StatsServiceImpl statsService;  // Servicio al que se le inyectará el mock
+    private StatsServiceImpl statsService;
 
     @BeforeEach
     public void setUp() {
-        MockitoAnnotations.openMocks(this);  // Inicializamos los mocks
+        MockitoAnnotations.openMocks(this);
     }
 
     @Test
     public void testGetStats() {
-        // Configuramos los valores mockeados del repositorio
-        when(dnaRepository.countByIsMutant(true)).thenReturn(40);  // 40 mutantes
-        when(dnaRepository.countByIsMutant(false)).thenReturn(60); // 60 humanos
+        when(dnaRepository.countByIsMutant(true)).thenReturn(40);
+        when(dnaRepository.countByIsMutant(false)).thenReturn(60);
 
-        // Ejecutamos el método
         StatsDTO statsDTO = statsService.getStats();
 
-        // Verificamos que los valores son los esperados
-        assertEquals(40, statsDTO.getCountMutantDNA());
-        assertEquals(60, statsDTO.getCountHumanDNA());
-        assertEquals(0.6667, statsDTO.getRatio(), 0.0001);  // Aproximadamente 40/60
+        assertEquals(40, statsDTO.getCount_mutant_dna());
+        assertEquals(60, statsDTO.getCount_human_dna());
+        assertEquals(0.6667, statsDTO.getRatio(), 0.0001);
     }
 }
