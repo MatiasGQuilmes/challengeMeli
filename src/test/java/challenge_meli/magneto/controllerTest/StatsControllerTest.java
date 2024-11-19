@@ -33,17 +33,16 @@ class StatsControllerTest {
     }
 
     @Test
-    void testGetStats_ReturnsStatsDTO() {
+    void testGetStats() {
         when(statsService.getStats()).thenReturn(statsDTO);
 
-        StatsDTO response = statsController.getStats();
-
-        assertNotNull(response);
-        assertEquals(5, response.getCount_mutant_dna());
-        assertEquals(10, response.getCount_human_dna());
-        assertEquals(0.5, response.getRatio());
-
+        StatsDTO result = statsController.getStats();
 
         verify(statsService, times(1)).getStats();
+
+        assertNotNull(result);
+        assertEquals(5, result.getCount_mutant_dna());
+        assertEquals(10, result.getCount_human_dna());
+        assertEquals(0.5, result.getRatio());
     }
 }

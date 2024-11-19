@@ -28,10 +28,6 @@ public class Dna {
         this.isMutant = isMutant;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public String[] getDna() {
         return dna;
     }

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas - Magneto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Estadísticas</h1>
+    <div id="stats" class="mt-4 text-center">
+        <p>Cargando estadísticas...</p>
+    </div>
+    <a href="/" class="btn btn-primary mt-4">Volver al inicio</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // Cargar las estadísticas desde la API cuando la página se carga
+   window.onload = function() {
+    fetch('/stats')
+        .then(response => response.json())
+        .then(data => {
+            const statsDiv = document.getElementById('stats');
+            if (data) {
+                statsDiv.innerHTML = `
+                    <h3>Estadísticas de Mutantes</h3>
+                    <p>Mutantes: ${data.count_mutant_dna}</p>
+                    <p>Humanos: ${data.count_human_dna}</p>
+                    <p>Ratio: ${data.ratio}</p>
+                `;
+            } else {
+                statsDiv.innerHTML = `<p>No se pudieron cargar las estadísticas.</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('stats').innerHTML = `<p>Error al cargar las estadísticas.</p>`;
+        });
+};
+
+
+</script>
+</body>
+</html>

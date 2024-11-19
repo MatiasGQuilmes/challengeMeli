@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Magneto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Bienvenido a Magneto</h1>
+    <div class="text-center mt-4">
+        <!-- Formulario para ingresar ADN -->
+        <form id="dnaForm" class="mb-4">
+            <div class="form-group">
+                <label for="dna">Ingrese ADN (separado por comas):</label>
+                <input type="text" id="dna" name="dna" class="form-control"
+                       placeholder="Ej: ATGCGA,CAGTGC,TTATGT,AGAAGG,CCCCTA,TCACTG" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Verificar si es Mutante</button>
+        </form>
+
+        <!-- Resultado de la verificación -->
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/view-stats" class="btn btn-info">Ver Estadísticas</a>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    document.getElementById('dnaForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const dnaInput = document.getElementById('dna').value; // Obtiene el valor del ADN
+        const dnaArray = dnaInput.split(','); // Convierte el ADN a un arreglo de cadenas
+
+        // Realiza la solicitud AJAX
+        fetch('/mutant', {  // Cambié la ruta a '/mutant'
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ dna: dnaArray })
+        })
+        .then(response => {
+            const resultDiv = document.getElementById('result');
+
+            if (response.ok) {
+                resultDiv.innerHTML = `
+                    <h3 class="text-success">¡Es un mutante!</h3>
+                    <p>El ADN proporcionado corresponde a un mutante.</p>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3 class="text-danger">No es un mutante</h3>
+                    <p>El ADN proporcionado no corresponde a un mutante.</p>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('result').innerHTML = `
+                <h3 class="text-danger">Error en la verificación</h3>
+                <p>Hubo un problema al procesar el ADN. Intenta de nuevo más tarde.</p>
+            `;
+        });
+    });
+</script>
+
+</body>
+</html>
