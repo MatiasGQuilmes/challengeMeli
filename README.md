@@ -45,9 +45,7 @@ git clone https://github.com/MatiasNGonzalezA/challengeMeli.git
 Prueba en Postman:
 
 
-1- Importar la colección:
-Utiliza el siguiente enlace para importar la colección a Postman:
-Colección de Postman
+1- Importar la colección: https://elements.getpostman.com/redirect?entityId=39655576-553c2a41-4937-4df8-bdb4-194e9ed090ba&entityType=collection
 
 2- Metodos:  
 
