@@ -80,7 +80,7 @@ Prueba en Postman:
 Pruebas vía Web API
 URL de la aplicación:
 
-https://magneto-app-442315.ue.r.appspot.com
+https://magneto-mutant.rj.r.appspot.com
 
 
 En el formulario, ingresa una secuencia de ADN:
