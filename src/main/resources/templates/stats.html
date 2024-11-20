@@ -22,7 +22,7 @@
 <script>
     // Cargar las estadísticas desde la API cuando la página se carga
    window.onload = function() {
-    fetch('/stats')
+    fetch('/api/stats')
         .then(response => response.json())
         .then(data => {
             const statsDiv = document.getElementById('stats');

@@ -6,9 +6,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Data
+@Getter
+@Setter
 public class Dna {
 
 
@@ -28,19 +32,5 @@ public class Dna {
         this.isMutant = isMutant;
     }
 
-    public String[] getDna() {
-        return dna;
-    }
 
-    public void setDna(String[] dna) {
-        this.dna = dna;
-    }
-
-    public boolean isMutant() {
-        return isMutant;
-    }
-
-    public void setMutant(boolean mutant) {
-        isMutant = mutant;
-    }
 }

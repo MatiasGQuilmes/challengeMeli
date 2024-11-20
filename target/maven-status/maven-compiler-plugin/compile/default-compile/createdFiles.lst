@@ -1,16 +1,1 @@
-challenge_meli\magneto\service\implement\StatsServiceImpl.class
-challenge_meli\magneto\model\Dna.class
-challenge_meli\magneto\repository\IDnaRepository.class
-challenge_meli\magneto\service\implement\MutantServiceImpl.class
-challenge_meli\magneto\service\mapper\IDnaMapperImpl.class
-challenge_meli\magneto\service\IMutantService.class
-challenge_meli\magneto\exception\InvalidDnaException.class
-challenge_meli\magneto\MagnetoApplication.class
-challenge_meli\magneto\service\IStatsService.class
-challenge_meli\magneto\constant\AppConstants.class
-challenge_meli\magneto\dto\DnaDTO.class
-challenge_meli\magneto\exception\DatabaseException.class
-challenge_meli\magneto\controller\MutantController.class
-challenge_meli\magneto\dto\StatsDTO.class
-challenge_meli\magneto\controller\StatsController.class
 challenge_meli\magneto\service\mapper\IDnaMapper.class
