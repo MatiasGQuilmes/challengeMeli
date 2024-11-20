@@ -93,6 +93,7 @@ Mutante:
 
 
 Notas adicionales
+- La URL anda lento
 - Se implementó Thymeleaf para crear un formulario sencillo que permite realizar pruebas desde una interfaz web.
 - La aplicación utiliza H2 Console como base de datos en memoria para almacenar temporalmente la información.
 
