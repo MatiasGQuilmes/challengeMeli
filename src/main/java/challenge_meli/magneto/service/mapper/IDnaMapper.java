@@ -3,12 +3,10 @@ package challenge_meli.magneto.service.mapper;
 import challenge_meli.magneto.dto.DnaDTO;
 import challenge_meli.magneto.model.Dna;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
+
 
 @Mapper(componentModel = "spring")
 public interface IDnaMapper {
-
 
     Dna dnaDTOtoEntity(DnaDTO dnaSequenceDTO);
 

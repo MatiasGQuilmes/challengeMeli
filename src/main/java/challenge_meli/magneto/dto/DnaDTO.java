@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Data
-@Getter
-@Setter
 public class DnaDTO {
 
     private String[] dna;
@@ -20,4 +18,5 @@ public class DnaDTO {
         this.dna = dna.getDna();
         this.isMutant = dna.isMutant();
     }
+
 }
